@@ -1,0 +1,11 @@
+.layout{
+    margin:20px auto;
+    width:40%;
+    height:auto;
+    background-color:lightgray;
+    padding:0 0 0 10px;
+    
+}
+input.ng-invalid{
+    border:5px solid red;
+}
