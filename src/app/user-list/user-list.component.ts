@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class UserListComponent implements OnInit {
 
     userList:any =[];
-    file:any =[];
+   
   constructor(private httpService:UserService, public router:Router) { }
 
   ngOnInit(): void {

@@ -19,10 +19,13 @@ export class UserDetailComponent implements OnInit {
   }
   presentDetails(picID: string){
     this.httpService.presentData(picID).subscribe((Response:any) =>{
-      this.file = Response;
+      this.file = Response.data;
     },(error:any) =>{
       console.log('presentDetails',error);
     });
+  }
+  navigation(link:any){
+    this.router.navigate([link]);
   }
 
 }
