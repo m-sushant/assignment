@@ -1,0 +1,18 @@
+<div class="super">
+    <table>
+        <tr class="details">
+            <th class="inner">ID</th>
+            <th class="inner">Email</th>
+            <th class="inner">First Name</th>
+            <th class="inner">Last Name</th>
+            <th class="inner">Avatar</th>
+        </tr>
+        <tr *ngFor="let user of userList" class="details">
+            <td class="inner">{{user.id}}</td>
+            <td class="inner">{{user.email}}</td>
+            <td class="inner">{{user.first_name}}</td>
+            <td class="inner">{{user.last_name}}</td>
+            <td class="inner"><img (click)="getNavigation('view', user.id)" [src]="user.avatar"></td>
+        </tr>
+    </table>
+</div>

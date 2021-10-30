@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -19,11 +22,35 @@ export class SignupComponent implements OnInit {
     interest: new FormControl()
     
   })
-  constructor() { }
+  constructor(private httpService:UserService, public route:ActivatedRoute, public router:Router) { }
 
   ngOnInit(): void {
+    this.getSignUpData();
   }
   printData(){
     console.log(this.signupForm.value);
+  }
+  getSignUpData(){
+    console.log('getSignUpData');
+    if(this.signupForm.valid){
+      let data={
+        "id":2,
+        "email":this.signupForm.value.email,
+        "first_name":this.signupForm.value.firstName,
+        "last_name":this.signupForm.value.lastName,
+        "number":this.signupForm.value.mobile,
+        "country":this.signupForm.value.country,
+        "gender":this.signupForm.value.gender
+      }
+      this.httpService.getSignUpData(data).subscribe((Response:any)=>{
+        console.log('getSignUpData',Response);
+        setTimeout(
+          ()=> {
+            this.router.navigate(['user-list'])
+          },4000)
+      },(error:any)=>{
+        console.log('getSignUpData',error);
+      });
+    }
   }
 }
