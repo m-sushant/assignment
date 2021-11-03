@@ -13,9 +13,15 @@ export class UserService {
       return this.http.get(this.url + "users?page=2");
     }
   getSignUpData(data:any){
-    return this.http.post(this.url + "api/users",data)
+    return this.http.post(this.url + "api/users", data)
   }  
   presentData(id: string){
     return this.http.get(this.url + "users/" + id);
+  }
+  createUser(cred:any){
+    return this.http.post(this.url + "users",cred);
+  }
+  updateEditData(id:any){
+    return this.http.put(this.url + "users/" + id, id);
   }
 }

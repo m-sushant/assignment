@@ -5,6 +5,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+
 
 const routes: Routes = [
   {
@@ -26,6 +28,10 @@ const routes: Routes = [
   {
   path:'view/:id',
   component:UserDetailComponent
+  },
+  {
+    path:'update/:id',
+    component:EditUserComponent
   }
 ];
 
