@@ -1,8 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from "@angular/router";
-import { UserService } from '../user.service';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-
+import { Component, OnInit , Input, SimpleChanges, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-edit-user',
@@ -10,35 +6,37 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
-  editForm:FormGroup;
-  file:any;
-  e_ID:any;
-  constructor( private httpService:UserService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
-    this.editForm = this.fb.group({
-      fName: ['', Validators.required],
-      lName: ['', Validators.required],
-      emailID: ['', Validators.compose([Validators.required])],
-    });
+  
+  
+  @Input() selectedUser:any;
+  @Output() updateList = new EventEmitter<any>();
+  constructor() {
+   
   } 
     ngOnInit(): void {
-      this.e_ID = this.route.snapshot.params['id'];
-      this.presentDetails(this.e_ID);
+      
+     
   }
 
-  presentDetails(e_ID: string){
-    this.httpService.presentData(e_ID).subscribe((Response:any) =>{
-      this.file = Response.data;
-      this.editForm.controls['fName'].setValue(this.file['first_name']);
-    },(error:any) =>{
-      console.log('presentDetails',error);
-    });
+  public data: any = {}
+ngOnChanges(changes: SimpleChanges) {
+  console.log('OnChanges',changes);
+  console.log(JSON.stringify(changes));
+
+  for (let propName in changes) {
+       let change = changes[propName];
+       this.data[propName] = change.currentValue
   }
 
-  updateData(values:any){
-    const file=new FormData();
-    file.append('fName', this.e_ID);
-    this.httpService.updateEditData(file).subscribe(result=>{
-      this.router.navigate(['user-list']);
-    })
-  }
+  console.log('my data', this.data)
 }
+
+  update(fname,lname,emailname){
+    this.selectedUser.first_name=fname.value;
+    this.selectedUser.last_name=lname.value;
+    this.selectedUser.email=emailname.value;
+  }
+  
+}
+
+

@@ -6,9 +6,9 @@
     
     height:60px;
 }
-.super{
+.upper{
     width:50%;
-    margin:20px auto;
+    margin:20px 20px;
     
     
 }
@@ -16,4 +16,7 @@
     text-align: center;
     border: 5px solid rgb(39, 42, 56);
     
+}
+.super{
+    display:flex;
 }

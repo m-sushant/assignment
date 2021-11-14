@@ -1,4 +1,5 @@
 <div class="super">
+<div class="upper">
     <table>
         <tr class="details">
             <th class="inner">ID</th>
@@ -9,7 +10,7 @@
         </tr>
         <tr *ngFor="let user of userList" class="details">
             <td class="inner">{{user.id}}</td>
-            <td class="inner" (click)="getNavigation('update', user.id)">  {{user.email}}</td>
+            <td class="inner" (click)="selectUser(user)"> {{user.email}}</td>
             <td class="inner">{{user.first_name}}</td>
             <td class="inner">{{user.last_name}}</td>
             <td class="inner"><img (click)="getNavigation('view', user.id)" [src]="user.avatar"></td>
@@ -17,3 +18,6 @@
     </table>
 </div>
 
+<div class="lower"><app-edit-user [selectedUser]="selectedUser" ></app-edit-user>
+</div>
+</div>

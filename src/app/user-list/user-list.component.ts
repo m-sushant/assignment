@@ -35,6 +35,10 @@ export class UserListComponent implements OnInit {
         this.router.navigate([link + '/' + id]);
     }
 }
+selectedUser: any;
+selectUser(user:any){
+  this.selectedUser = user;
+}
 
 
 }
