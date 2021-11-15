@@ -14,8 +14,6 @@ export class EditUserComponent implements OnInit {
    
   } 
     ngOnInit(): void {
-      let user=this.data.selectedUser.first_name;
-    this.updateList.emit(user);
      
   }
 
@@ -33,7 +31,8 @@ ngOnChanges(changes: SimpleChanges) {
 }
 
   update(){
-   let  user=this.data.selectedUser.first_name;
+   let  user=this.data.selectedUser;
+   console.log(user);
     this.updateList.emit(user);
   }
   
