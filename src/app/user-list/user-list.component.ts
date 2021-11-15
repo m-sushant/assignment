@@ -42,10 +42,8 @@ selectUser(user:any){
 updateMe(evt){
   console.log('user',evt);
   console.log('selection',this.selectedUser);
-  this.selectedUser.currentvalue.first_name=evt.first_name;
-  this.selectedUser.currentvalue.last_name=evt.last_name;
-  this.selectedUser.currentvalue.email=evt.email;
-  
+  this.selectedUser.currentvalue.userList=evt.userList;
+
 }
 
 }
