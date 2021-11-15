@@ -7,14 +7,15 @@ import { Component, OnInit , Input, SimpleChanges, Output, EventEmitter} from '@
 })
 export class EditUserComponent implements OnInit {
   
-  
+  finame:string ="";
   @Input() selectedUser:any;
   @Output() updateList = new EventEmitter<any>();
   constructor() {
    
   } 
     ngOnInit(): void {
-      
+      let user=this.data.selectedUser.first_name;
+    this.updateList.emit(user);
      
   }
 
@@ -31,10 +32,9 @@ ngOnChanges(changes: SimpleChanges) {
   console.log('my data', this.data)
 }
 
-  update(fname,lname,emailname){
-    this.selectedUser.first_name=fname.value;
-    this.selectedUser.last_name=lname.value;
-    this.selectedUser.email=emailname.value;
+  update(){
+   let  user=this.data.selectedUser.first_name;
+    this.updateList.emit(user);
   }
   
 }

@@ -39,6 +39,11 @@ selectedUser: any;
 selectUser(user:any){
   this.selectedUser = user;
 }
-
+updateMe(evt:string){
+  console.log('user',evt);
+  
+  
+  
+}
 
 }

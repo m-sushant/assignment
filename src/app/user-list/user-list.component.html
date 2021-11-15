@@ -18,6 +18,6 @@
     </table>
 </div>
 
-<div class="lower"><app-edit-user [selectedUser]="selectedUser" ></app-edit-user>
+<div class="lower"><app-edit-user [selectedUser]="selectedUser" (updateList)="updateMe($event)"></app-edit-user>
 </div>
 </div>
