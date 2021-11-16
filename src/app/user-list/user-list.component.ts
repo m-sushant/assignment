@@ -41,8 +41,15 @@ selectUser(user:any){
 }
 updateMe(evt){
   console.log('user',evt);
-  console.log('selection',this.selectedUser);
-  this.selectedUser.currentvalue.userList=evt.userList;
+  //this.selectedUser.currentvalue.userList=evt.userList;
+  let index = this.userList.indexOf(evt);
+
+    
+
+    this.userList[index] = evt;
+
+    console.log(this.userList);
+    this.userList.splice(index,1,evt);
 
 }
 
