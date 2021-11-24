@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AuthGuard } from './auth.guard';
+import { UserService } from './user.service';
+ 
 
 
 
@@ -32,7 +35,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

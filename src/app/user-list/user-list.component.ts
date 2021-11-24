@@ -49,6 +49,7 @@ updateMe(evt){
     this.userList[index] = evt;
 
     console.log(this.userList);
+    console.log('meassage',this.userList.splice(index,1,evt));
     this.userList.splice(index,1,evt);
 
 }

@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path:'user-list',
-    component:UserListComponent
+    component:UserListComponent,
+    canActivate:[AuthGuard]
   },
   {
   path:'view/:id',
@@ -32,6 +34,10 @@ const routes: Routes = [
   {
     path:'update/:id',
     component:EditUserComponent
+  },
+  {
+    path:'**',
+    component:HomepageComponent,
   }
 ];
 

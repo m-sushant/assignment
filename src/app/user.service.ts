@@ -24,4 +24,10 @@ export class UserService {
   updateEditData(id:any){
     return this.http.put(this.url + "users/" + id, id);
   }
+  getLoginData(data:any){
+    return this.http.post<any>(this.url + "login", data);
+  }
+  loggedCheck(){
+    return !!localStorage.getItem('token')
+  }
 }
