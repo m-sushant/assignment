@@ -25,7 +25,7 @@ const routes: Routes = [
   {
     path:'user-list',
     component:UserListComponent,
-    canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
   path:'view/:id',
