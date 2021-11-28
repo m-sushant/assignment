@@ -12,15 +12,15 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path:'signup',
-    component:SignupComponent
+    component:SignupComponent, data: { animation: 'signup' }
   },
   {
     path:'homepage',
-    component:HomepageComponent
+    component:HomepageComponent, data: { animation: 'home' }
   },
   {
     path:'login',
-    component:LoginComponent
+    component:LoginComponent, data: { animation: 'login' }
   },
   {
     path:'user-list',

@@ -13,6 +13,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { AuthGuard } from './auth.guard';
 import { UserService } from './user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterOutlet } from '@angular/router';
+ 
  
  
 
@@ -26,7 +29,8 @@ import { UserService } from './user.service';
     LoginComponent,
     UserListComponent,
     UserDetailComponent,
-    EditUserComponent
+    EditUserComponent,
+    
     
   ],
   imports: [
@@ -34,7 +38,9 @@ import { UserService } from './user.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+     
   ],
   providers: [UserService,AuthGuard,
    ],

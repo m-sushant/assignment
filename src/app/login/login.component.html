@@ -8,7 +8,7 @@
                    <input type="text" [(ngModel)]="loginData.username" name="username" placeholder="Username">
                     <input type="password" [(ngModel)]="loginData.password"  name="password" placeholder="Password">
                      <a class="forgot text-muted" href="#">Forgot password?</a>
-                      <input type="submit" (click)="userLogin()" value="Login" >
+                      <input [@toggleClick]="isGreen" type="submit" (click)="userLogin()" value="Login" >
                   
               </form>
           </div>
